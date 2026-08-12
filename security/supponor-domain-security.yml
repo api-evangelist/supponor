@@ -1,4 +1,4 @@
-generated: '2026-07-21'
+generated: '2026-08-12'
 method: probed
 source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
 hosts:
@@ -9,7 +9,7 @@ hosts:
   hsts: false
 domains:
 - domain: supponor.com
-  dnssec: true
+  dnssec: false
   caa: []
   spf: true
   dmarc: true

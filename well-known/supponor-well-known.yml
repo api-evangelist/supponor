@@ -1,0 +1,115 @@
+generated: '2026-08-12'
+method: probed
+source: >-
+  Live anonymous GET probes of the RFC 8615 /.well-known/ registry plus llms.txt on
+  every Supponor host reachable from the public internet (supponor.com,
+  www.supponor.com, hub.supponor.com).
+result: none
+note: >-
+  Supponor serves no /.well-known/ document on any host. Every path on the WordPress
+  marketing site (supponor.com / www.supponor.com) returns 404. Every path on
+  hub.supponor.com that answers 200 returns the Supponor Hub React SPA shell
+  (`<!doctype html>` ... `<div id="root">`, 563 bytes, identical byte-for-byte to
+  the site root) — an S3/CloudFront single-page-app catch-all, NOT a document. Those
+  200s are recorded below as `document: false` and are deliberately treated as
+  misses. No WellKnown or SecurityTxt pointer is emitted in apis.yml, because the
+  provider does not serve either surface.
+hosts:
+- host: supponor.com
+  probes:
+  - path: /.well-known/security.txt
+    status: 404
+    document: false
+  - path: /.well-known/openid-configuration
+    status: 404
+    document: false
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    document: false
+  - path: /.well-known/api-catalog
+    status: 404
+    document: false
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    document: false
+  - path: /.well-known/agent-card.json
+    status: 404
+    document: false
+  - path: /.well-known/agent.json
+    status: 404
+    document: false
+  - path: /llms.txt
+    status: 404
+    document: false
+- host: www.supponor.com
+  probes:
+  - path: /.well-known/security.txt
+    status: 404
+    document: false
+  - path: /.well-known/openid-configuration
+    status: 404
+    document: false
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    document: false
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    document: false
+  - path: /.well-known/api-catalog
+    status: 404
+    document: false
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    document: false
+  - path: /.well-known/agent-card.json
+    status: 404
+    document: false
+  - path: /.well-known/agent.json
+    status: 404
+    document: false
+  - path: /llms.txt
+    status: 301
+    document: false
+- host: hub.supponor.com
+  note: >-
+    Supponor Hub, the customer-facing event-management application. Static React SPA
+    on Amazon S3 behind CloudFront; unknown paths are rewritten to index.html, which
+    is why several probes answer 200 with an HTML shell rather than 404.
+  probes:
+  - path: /.well-known/security.txt
+    status: 404
+    document: false
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: text/html
+    document: false
+    note: SPA catch-all — HTML shell, not an OpenID Provider Metadata document.
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: text/html
+    document: false
+    note: SPA catch-all — HTML shell, not RFC 8414 metadata.
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    content_type: text/html
+    document: false
+    note: SPA catch-all — HTML shell, not RFC 9728 metadata.
+  - path: /.well-known/api-catalog
+    status: 200
+    content_type: text/html
+    document: false
+    note: SPA catch-all — HTML shell, not an RFC 9727 api-catalog document.
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    document: false
+  - path: /.well-known/agent-card.json
+    status: 404
+    document: false
+  - path: /.well-known/agent.json
+    status: 404
+    document: false
+  - path: /llms.txt
+    status: 404
+    document: false
+documents_found: 0
+pointers_emitted: []

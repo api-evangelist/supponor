@@ -1,0 +1,40 @@
+# Supponor
+
+> Supponor is a virtual advertising technology company for live sports broadcasting, part of TGI Sport since 2024. Its software digitally replaces and inserts in-venue brand placements with real-time overlays, so a rights holder can serve region-targeted advertising across multiple broadcast feeds, languages, surfaces and camera angles. Supponor sells three products — AIR (AI-driven virtual advertising for live broadcast), HUB (a pre-event suite for fixtures, inventory, playlists, creative and approvals) and Data Room (post-event analytics, reporting and video storage) — as an enterprise service to leagues, federations, clubs and broadcasters including FC Bayern, the NHL, The FA, Serie A and La Liga.
+
+## Developer surface
+
+**Supponor publishes no public API.** As of 2026-08-12 there is no developer portal, no API reference, no OpenAPI/AsyncAPI/GraphQL SDL, no SDK, no webhook catalog, no MCP server and no agent card on any Supponor host. `api.supponor.com`, `developer.supponor.com`, `docs.supponor.com` and `developers.supponor.com` do not resolve. The products are sold and delivered as a managed service; integration is arranged through a commercial engagement rather than self-serve credentials.
+
+The one machine surface that exists is the private backend of the Supponor Hub web application (`hub.supponor.com`, a static React SPA on S3/CloudFront). Its bundle references an AWS AppSync GraphQL endpoint and AWS API Gateway stages in `eu-central-1`, fronted by an Amazon Cognito user pool. Both refuse anonymous access (AppSync introspection returns HTTP 401 `UnauthorizedException`; API Gateway returns HTTP 403 `Missing Authentication Token`). It is application plumbing for the Hub UI, not a published or documented product API, and API Evangelist does not treat it as one.
+
+## Products
+
+- [AIR](https://supponor.com/air/): AI-based virtual advertising platform for live broadcast — digital replacement and insertion of in-venue brand placements, remotely deployable and all-weather.
+- [AIR — Surfaces](https://supponor.com/air/surfaces/): The venue surfaces AIR can virtualize across sports.
+- [HUB](https://supponor.com/hub/): Pre-event control — fixture scheduling, inventory catalogue, campaign lineup/running order, creative suite, and playlist approval workflow.
+- [Supponor Hub (application)](https://hub.supponor.com/): The customer-facing HUB application. Login required; no public sign-up.
+- [Data Room](https://supponor.com/data-room-maximising-your-return-through-data-and-insights/): Post-event analytics — reporting, video storage and campaign performance metrics.
+
+## Company
+
+- [Supponor](https://www.supponor.com): Company site.
+- [Insight](https://supponor.com/insight/): Company blog and news.
+- [Careers](https://supponor.com/careers/): Open roles.
+- [Get in touch](https://supponor.com/get-in-touch/): The only access path — every product page terminates in this contact form. No pricing is published.
+- [Privacy Policy](https://supponor.com/privacy-policy/)
+- [GitHub — supponor](https://github.com/supponor): Public organization. Two repositories, both forks of FFmpeg (`FFmpeg`, `mc-ffmpeg-omx` — "Modified FFmpeg to support OMX plugins"), last touched in 2021. No first-party SDK or client library.
+- [TGI Sport](https://tgisport.com/): Parent company; acquired Supponor in 2024.
+
+## This profile
+
+- [apis.yml](https://raw.githubusercontent.com/api-evangelist/supponor/refs/heads/main/apis.yml): The API Evangelist APIs.json profile for Supponor.
+- [Domain security probe](https://github.com/api-evangelist/supponor/blob/main/security/supponor-domain-security.yml): TLS/HSTS/DNSSEC/CAA/SPF/DMARC posture for supponor.com.
+- [Well-known probe](https://github.com/api-evangelist/supponor/blob/main/well-known/supponor-well-known.yml): Recorded absence — no `/.well-known/` document on any host.
+- [Plans and pricing](https://github.com/api-evangelist/supponor/blob/main/plans/supponor-plans-pricing.yml): Recorded absence — contact-sales only, zero published plans.
+
+<!--
+generated: '2026-08-12'
+method: generated
+source: apis.yml + repo artifacts + live probes of supponor.com, www.supponor.com, hub.supponor.com (no /llms.txt is published by Supponor; https://supponor.com/llms.txt returns 404)
+-->

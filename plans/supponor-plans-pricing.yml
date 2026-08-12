@@ -1,0 +1,25 @@
+generated: '2026-08-12'
+method: searched
+source: https://supponor.com/page-sitemap.xml
+docs: https://supponor.com/get-in-touch/
+plan_count: 0
+currency: null
+model: contact-sales
+note: >-
+  Supponor publishes no pricing, plans, or packaging of any kind. Its full public page
+  inventory is eight URLs (verified against https://supponor.com/page-sitemap.xml on
+  2026-08-12): /air/, /air/surfaces/, /hub/, the Data Room article, /insight/,
+  /careers/, /privacy-policy/ and /get-in-touch/. There is no /pricing/ page
+  (HTTP 404), no rate card, and no self-serve sign-up. Every product page — AIR, HUB,
+  Data Room — terminates in a "get in touch" / "speak to an expert" contact form.
+  Supponor sells virtual advertising as an enterprise service to rights holders,
+  broadcasters and leagues under negotiated commercial agreements, so an honest zero
+  here is the finding, not a gap in our search.
+plans: []
+evidence:
+- url: https://supponor.com/pricing/
+  status: 404
+- url: https://supponor.com/page-sitemap.xml
+  status: 200
+- url: https://supponor.com/get-in-touch/
+  status: 200

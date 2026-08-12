@@ -32,7 +32,7 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-21'
+modified: '2026-08-12'
 tags:
 - Company
 - Enterprise
@@ -60,8 +60,42 @@ common:
   url: https://supponor.com/insight/
 - type: DomainSecurity
   url: security/supponor-domain-security.yml
+- type: GitHubOrganization
+  url: https://github.com/supponor
+- type: LLMsTxt
+  url: llms/supponor-llms.txt
+- type: Plans
+  url: plans/supponor-plans-pricing.yml
 x-enrichment:
-  date: '2026-07-21'
+  date: '2026-08-12'
   status: minimal
-  artifacts_added: 1
+  artifacts_added: 3
   pass: local-v1
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    Supponor sells AIR, HUB and Data Room as a managed enterprise service to leagues and
+    broadcasters and publishes no developer program at all — api/developer/docs/developers
+    .supponor.com do not resolve, the eight-page WordPress site has no developer, pricing
+    or terms page, and the only machine surface that exists is the Supponor Hub SPA's own
+    private AWS AppSync GraphQL backend, which returns 401 UnauthorizedException to
+    anonymous introspection and is application plumbing rather than a published API.
+  evidence:
+  - url: https://api.supponor.com/
+    status: 0
+  - url: https://developer.supponor.com/
+    status: 0
+  - url: https://supponor.com/openapi.json
+    status: 404
+  - url: https://supponor.com/llms.txt
+    status: 404
+  - url: https://supponor.com/.well-known/agent-card.json
+    status: 404
+  - url: https://hub.supponor.com/.well-known/agent-card.json
+    status: 404
+  - url: https://otxjbsi6mnb4fd5dpijwg776fy.appsync-api.eu-central-1.amazonaws.com/graphql
+    status: 401
+  - url: https://supponor.com/page-sitemap.xml
+    status: 200
+  checked: '2026-08-12'
